@@ -1,3 +1,5 @@
 ## Raw EHR
 healthData/*
 
+## Mongodb settings
+fhir-aggregations/mongo_config.txt
