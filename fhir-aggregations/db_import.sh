@@ -8,6 +8,9 @@
 # --file <input CSV file>: comma separated, no header line, text in double-quotes
 # --fields <fields file>: list of fields (one per line) with type, e.g.: idnum.sting()
 #
+# Use example:
+# ./db_import.sh --db dbname --collection collname --file ../*.csv --fields ../*.txt
+#
 # Usefuls commands:
 # (txt in csv)			$ cat file.txt | tr -s '[:blank:]' ',' > file.csv
 # (Find & replace)		:%s/;/,/g 
