@@ -7,11 +7,14 @@
 # --collection <collection>: name of the collection within the database
 # --file <input CSV file>: comma separated, no header line, text in double-quotes
 # --fields <fields file>: list of fields (one per line) with type, e.g.: idnum.sting()
+#
+# Usefuls commands:
+# (txt in csv)			$ cat file.txt | tr -s '[:blank:]' ',' > file.csv
+# (Find & replace)		:%s/;/,/g 
 
 
 # Default database
 #DB=dbname
-
 
 # Check parameters
 while [ ! -z "$1" ]
@@ -47,7 +50,6 @@ echo "Fields: $FIELDS"
 
 
 # Import the CSV file as a collection
-#mongoimport -u "user" -p "gZog46vnZXsqAzoMldg5" --db $DB --collection $COLLECTION --type csv --file $CSV_FILE --fieldFile $FIELDS --columnsHaveTypes
 mongoimport -u "user" -p "gZog46vnZXsqAzoMldg5" --db $DB --collection $COLLECTION --type csv --columnsHaveTypes --fieldFile $FIELDS --file $CSV_FILE
 
 
