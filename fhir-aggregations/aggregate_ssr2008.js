@@ -1,17 +1,18 @@
-db = db.getSiblingDB('pmsi-2020')
+/*
+ * Merge fix and acte tables
+ * 
+ * Execute aggregation:
+ * mongo --authenticationDatabase "bdname" --username "username" -p "pwd" aggregate_add_fields-ssr.js
+ */
+
+db = db.getSiblingDB('bdname')
 
 db.result.drop()
 
 db.ssr2008fix.aggregate([
-
-    //{$limit: 1000},
-    //{$match: {"Idnum":"40780389000024600"}},
-
-    {$lookup: {from:"ssr2008acte", localField:"idnum", foreignField:"idnum", as:"actes"}},
-
-    {$project: {"actes._id": false}},
-
-    {$out: "result"}
+	{$lookup: {from:"ssr2008acte", localField:"idnum", foreignField:"idnum", as:"actes"}},
+	{$project: {"actes._id": false}},
+	{$out: "result"}
 ])
 
 print(db.result.find().count())
