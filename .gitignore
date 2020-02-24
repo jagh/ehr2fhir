@@ -5,3 +5,6 @@ healthData/*
 fhir-aggregations/mongo_config.txt
 fhir-aggregations/*.swp
 fhir-aggregations/*.swo
+
+## EHR exploration
+ehr-exploration/.ipynb_checkpoints/*
